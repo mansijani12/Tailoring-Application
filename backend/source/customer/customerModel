@@ -1,0 +1,24 @@
+var mongoose = require('mongoose'); mongoose.Schema;
+var Schema = mongoose.Schema;
+
+var customerSchema = new Schema({
+    
+    firstname: {
+        type: string,
+        require: true
+    },
+    lastname: {
+        type: string,
+        require: true
+    },
+    email: {
+        type: string,
+        require: true
+    },
+    password: {
+        type: string,
+        require: true
+    },
+});
+
+module.exports = mongoose.model('customer', customerSchema);

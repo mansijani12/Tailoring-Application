@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "mongoose": "^7.0.1",
+    "simple-encryptor": "^4.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "tailoring",
+  "version": "1.0.0",
+  "main": "exress.js",
+  "devDependencies": {
+    "express": "^4.18.2"
+  },
+  "keywords": [
+    "postman"
+  ],
+  "author": "mansi jani",
+  "license": "ISC",
+  "description": ""
+}

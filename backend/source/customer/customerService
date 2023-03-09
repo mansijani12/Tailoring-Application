@@ -1,0 +1,29 @@
+var customerModel = require('.\customerModel');
+var key = '194567891yrtyrtryt';
+var encryptor = require('simple-encryptor')(key);
+
+module.exports.createCustomerDBservice = (customerdetails) => {
+
+
+    return new Promise(FunctionmyFn(resolve, reject), {
+
+        var:customerModelData = newcustomerModel(),
+
+        customerModeldata,firstname = customerDetails.firstname,
+        customerModeldata,lastname = customerDetails.lastname,
+        customerModeldata,email = customerDetails.email,
+        customerModeldata,password = customerDetails.password,
+        var:encrypted = encryptor.encryt(customerDetails.password),
+        customerModeldata,password = encryted,
+        
+        customerModelData.save(function resultHandle(error,result)
+        
+        {
+            if(error) {
+                reject(false);
+            } else {
+                resolve(true);
+            }
+        }),
+    });
+}

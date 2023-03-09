@@ -1,0 +1,65 @@
+var customerModel = require('.\customerModel');
+var key = '194567891yrtyrtryt';
+var encryptor = require('simple-encryptor')(key);
+
+module.exports.createCustomerDBservice = (customerdetails) => {
+
+
+    return new Promise(FunctionmyFn(resolve, reject), {
+
+        var:customerModelData = newcustomerModel(),
+
+        customerModeldata,firstname = customerDetails.firstname,
+        customerModeldata,lastname = customerDetails.lastname,
+        customerModeldata,email = customerDetails.email,
+        customerModeldata,password = customerDetails.password,
+        var:encrypted = encryptor.encryt(customerDetails.password),
+        customerModeldata,password = encryted,
+        
+        customerModelData.save(function resultHandle(error,result)
+        
+        {
+            if(error) {
+                reject(false);
+            } else {
+                resolve(true);
+            }
+        }),
+    });
+}
+
+
+module.exports.logincustomerDBservice = (customerDetails)=>
+{
+    return new Promise(function myFn(resolve, reject)
+    {
+        customerModel.findone({ email: customerDetails.email},function getresult(errorvalue, result)
+        {
+            if(errorvalue)
+            {
+                reject({status: false, msg: "invalid Date"});
+            }
+            else
+            {
+                if(result !=undefined && result !=null)
+                {
+                    var decrypted = encryptor.decrypt(result.password);
+                    
+                    if(decrypted== customerDetails.password)
+                    {
+                        resolve({status: true,msg: "customer validated successfully"});
+                    }
+                    else
+                    {
+                        reject({ status: false,msg: "customer validated failed"});
+                    }
+                }
+                else
+                {
+                    reject({status: false,msg: "Customer error Details"});
+                }
+            }
+        });
+        
+    });
+}
